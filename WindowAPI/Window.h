@@ -2,17 +2,27 @@
 #define WINDOW_H
 
 #include <windows.h>
+#include "../Logger/Logger.h"
+
+#ifdef __cplusplus
 
 class Window
 {
 private:
-     HWND hWnd;
+    HWND hWnd;
+    Logger* log;
 public:
-     Window(int width, int height, const char* title, int style);
+    Window(int width, int height, const char* title, int style);
 
-     void show(void);
+    void show(void);
 
-     ~Window();
+    ~Window();
 };
+
+#else // ! C++
+
+#error C is not suppoted yet!
+
+#endif // ! C++
 
 #endif
